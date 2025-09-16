@@ -15,9 +15,9 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://docs.aerosafe.it',
+  url: 'https://l4z0rph4z0r.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/',
+  baseUrl: '/aerosafe-docs/',
 
   // AeroSafe specific deployment config
   organizationName: 'l4z0rph4z0r',
