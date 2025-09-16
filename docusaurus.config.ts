@@ -20,7 +20,7 @@ const config: Config = {
   baseUrl: '/',
 
   // AeroSafe specific deployment config
-  organizationName: 'aerosafe-ist',
+  organizationName: 'l4z0rph4z0r',
   projectName: 'aerosafe-docs',
 
   onBrokenLinks: 'warn',
@@ -55,7 +55,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
-          editUrl: 'https://github.com/aerosafe-ist/aerosafe-docs/edit/main/',
+          editUrl: 'https://github.com/l4z0rph4z0r/aerosafe-docs/edit/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
@@ -151,7 +151,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/aerosafe-ist/aerosafe-docs',
+          href: 'https://github.com/l4z0rph4z0r/aerosafe-docs',
           label: 'GitHub',
           position: 'right',
           className: 'header-github-link',
@@ -237,7 +237,7 @@ const config: Config = {
           items: [
             {
               label: 'Documentazione GitHub',
-              href: 'https://github.com/aerosafe-ist/aerosafe-docs',
+              href: 'https://github.com/l4z0rph4z0r/aerosafe-docs',
             },
             {
               label: 'Privacy Policy',

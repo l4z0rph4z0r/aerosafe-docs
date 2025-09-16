@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: aerosafe-ist/aerosafe-docs
+  repo: l4z0rph4z0r/aerosafe-docs
   branch: main
 
 media_folder: static/img
