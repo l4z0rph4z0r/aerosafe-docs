@@ -1,0 +1,86 @@
+{
+  "link.title.Documentazione": {
+    "message": "Documentazione",
+    "description": "The title of the footer links column with title=Documentazione in the footer"
+  },
+  "link.title.Settori di Applicazione": {
+    "message": "Settori di Applicazione",
+    "description": "The title of the footer links column with title=Settori di Applicazione in the footer"
+  },
+  "link.title.AeroSafe": {
+    "message": "AeroSafe",
+    "description": "The title of the footer links column with title=AeroSafe in the footer"
+  },
+  "link.title.Risorse": {
+    "message": "Risorse",
+    "description": "The title of the footer links column with title=Risorse in the footer"
+  },
+  "link.item.label.Prodotti DryFogS": {
+    "message": "Prodotti DryFogS",
+    "description": "The label of footer link with label=Prodotti DryFogS linking to /products/dryfogs"
+  },
+  "link.item.label.Soluzioni Chimiche": {
+    "message": "Soluzioni Chimiche",
+    "description": "The label of footer link with label=Soluzioni Chimiche linking to /products/chemicals"
+  },
+  "link.item.label.Guide Installazione": {
+    "message": "Guide Installazione",
+    "description": "The label of footer link with label=Guide Installazione linking to /guides/installation"
+  },
+  "link.item.label.API Reference": {
+    "message": "API Reference",
+    "description": "The label of footer link with label=API Reference linking to /api"
+  },
+  "link.item.label.Sanitario": {
+    "message": "Sanitario",
+    "description": "The label of footer link with label=Sanitario linking to /industries/healthcare"
+  },
+  "link.item.label.Sicurezza Alimentare": {
+    "message": "Sicurezza Alimentare",
+    "description": "The label of footer link with label=Sicurezza Alimentare linking to /industries/food-safety"
+  },
+  "link.item.label.Hospitality": {
+    "message": "Hospitality",
+    "description": "The label of footer link with label=Hospitality linking to /industries/hospitality"
+  },
+  "link.item.label.Servizi Funebri": {
+    "message": "Servizi Funebri",
+    "description": "The label of footer link with label=Servizi Funebri linking to /industries/funeral-services"
+  },
+  "link.item.label.Sito Web": {
+    "message": "Sito Web",
+    "description": "The label of footer link with label=Sito Web linking to https://www.aerosafe.it"
+  },
+  "link.item.label.Contatti": {
+    "message": "Contatti",
+    "description": "The label of footer link with label=Contatti linking to https://www.aerosafe.it/contatti"
+  },
+  "link.item.label.Supporto": {
+    "message": "Supporto",
+    "description": "The label of footer link with label=Supporto linking to https://www.aerosafe.it/supporto"
+  },
+  "link.item.label.Blog": {
+    "message": "Blog",
+    "description": "The label of footer link with label=Blog linking to /blog"
+  },
+  "link.item.label.Documentazione GitHub": {
+    "message": "Documentazione GitHub",
+    "description": "The label of footer link with label=Documentazione GitHub linking to https://github.com/aerosafe-ist/aerosafe-docs"
+  },
+  "link.item.label.Privacy Policy": {
+    "message": "Privacy Policy",
+    "description": "The label of footer link with label=Privacy Policy linking to https://www.aerosafe.it/privacy"
+  },
+  "link.item.label.Termini di Servizio": {
+    "message": "Termini di Servizio",
+    "description": "The label of footer link with label=Termini di Servizio linking to https://www.aerosafe.it/termini"
+  },
+  "copyright": {
+    "message": "\n        <div style=\"margin-bottom: 16px;\">\n          <strong>AeroSafe (IST S.r.l.s.)</strong><br/>\n          Nebulizzatori DryFogS e Soluzioni Sanificanti Professionali\n        </div>\n        <div style=\"font-size: 14px; opacity: 0.8;\">\n          Copyright © 2025 IST S.r.l.s. Tutti i diritti riservati.<br/>\n          Documentazione realizzata con <a href=\"https://docusaurus.io/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #25c2a0;\">Docusaurus</a>\n        </div>\n      ",
+    "description": "The footer copyright"
+  },
+  "logo.alt": {
+    "message": "AeroSafe Logo",
+    "description": "The alt text of footer logo"
+  }
+}

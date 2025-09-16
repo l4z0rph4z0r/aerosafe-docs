@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: aerosafe-ist/aerosafe-docs
+  branch: main
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: docs
+    label: Documentation
+    folder: docs
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Sidebar Label", name: "sidebar_label", widget: "string", required: false}
+      - {label: "Sidebar Position", name: "sidebar_position", widget: "number", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: blog
+    label: Blog
+    folder: blog
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Authors", name: "authors", widget: "list"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Body", name: "body", widget: "markdown"}

@@ -1,0 +1,246 @@
+# Production Docker Compose Configuration for AeroSafe Documentation
+# Security-hardened production deployment with monitoring and backup capabilities
+
+version: '3.8'
+
+services:
+  # Main application service
+  aerosafe-docs-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+      args:
+        NODE_ENV: production
+        DOCUSAURUS_URL: https://docs.aerosafe.it
+        DOCUSAURUS_BASE_URL: /
+        BUILD_TIME: ${BUILD_TIME:-}
+        GIT_COMMIT_SHA: ${GIT_COMMIT_SHA:-}
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.aerosafe-docs-prod.rule=Host(`docs.aerosafe.it`)"
+        - "traefik.http.routers.aerosafe-docs-prod.entrypoints=websecure"
+        - "traefik.http.routers.aerosafe-docs-prod.tls.certresolver=letsencrypt"
+        - "traefik.http.services.aerosafe-docs-prod.loadbalancer.server.port=80"
+        - "traefik.http.routers.aerosafe-docs-prod.middlewares=security-headers,rate-limit"
+    container_name: aerosafe-docs-production
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx:size=100M,noexec,nosuid,nodev
+      - /var/log/nginx:size=100M,noexec,nosuid,nodev
+      - /var/run/nginx:size=10M,noexec,nosuid,nodev
+      - /tmp:size=50M,noexec,nosuid,nodev
+    volumes:
+      # Read-only bind mounts for configuration
+      - ./nginx.prod.conf:/etc/nginx/conf.d/default.conf:ro
+      # Logs for monitoring
+      - nginx-logs:/var/log/nginx
+    env_file:
+      - .env.production
+    environment:
+      - NODE_ENV=production
+      - NGINX_ENTRYPOINT_QUIET_LOGS=1
+    ports:
+      - "${PROD_PORT:-8080}:80"
+    networks:
+      - aerosafe-network
+    labels:
+      - "com.aerosafe.service=documentation"
+      - "com.aerosafe.environment=production"
+      - "com.aerosafe.backup.enabled=true"
+      - "com.aerosafe.monitoring.enabled=true"
+      - "com.aerosafe.security.level=high"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:80/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "com.aerosafe.service,com.aerosafe.environment"
+
+  # Reverse proxy and SSL termination
+  traefik:
+    image: traefik:v3.0
+    container_name: aerosafe-traefik-prod
+    restart: unless-stopped
+    command:
+      - --api.dashboard=true
+      - --api.insecure=false
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge=true
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
+      - --certificatesresolvers.letsencrypt.acme.email=${ACME_EMAIL:-admin@aerosafe.it}
+      - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
+      - --log.level=ERROR
+      - --accesslog=true
+      - --accesslog.filePath=/var/log/traefik/access.log
+      - --log.filePath=/var/log/traefik/error.log
+      - --metrics.prometheus=true
+      - --metrics.prometheus.addEntryPointsLabels=true
+      - --metrics.prometheus.addServicesLabels=true
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8081:8080" # Traefik dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - letsencrypt-data:/letsencrypt
+      - traefik-logs:/var/log/traefik
+    networks:
+      - aerosafe-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.rule=Host(`traefik.aerosafe.it`)"
+      - "traefik.http.routers.api.entrypoints=websecure"
+      - "traefik.http.routers.api.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.api.service=api@internal"
+      - "traefik.http.routers.api.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=${TRAEFIK_AUTH:-admin:$$2y$$10$$K8qJFWh5Bx5LlR5LlR5LlO}"
+      # Security middleware
+      - "traefik.http.middlewares.security-headers.headers.frameDeny=true"
+      - "traefik.http.middlewares.security-headers.headers.sslRedirect=true"
+      - "traefik.http.middlewares.security-headers.headers.browserXSSFilter=true"
+      - "traefik.http.middlewares.security-headers.headers.contentTypeNosniff=true"
+      - "traefik.http.middlewares.security-headers.headers.forceSTSHeader=true"
+      - "traefik.http.middlewares.security-headers.headers.stsIncludeSubdomains=true"
+      - "traefik.http.middlewares.security-headers.headers.stsPreload=true"
+      - "traefik.http.middlewares.security-headers.headers.stsSeconds=31536000"
+      # Rate limiting middleware
+      - "traefik.http.middlewares.rate-limit.ratelimit.average=100"
+      - "traefik.http.middlewares.rate-limit.ratelimit.period=1m"
+      - "traefik.http.middlewares.rate-limit.ratelimit.burst=50"
+
+  # Monitoring with Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: aerosafe-prometheus
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=15d'
+      - '--web.enable-lifecycle'
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    ports:
+      - "${PROMETHEUS_PORT:-9090}:9090"
+    networks:
+      - aerosafe-network
+    labels:
+      - "com.aerosafe.service=monitoring"
+      - "com.aerosafe.environment=production"
+
+  # Log aggregation
+  loki:
+    image: grafana/loki:latest
+    container_name: aerosafe-loki
+    restart: unless-stopped
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - loki-data:/loki
+    ports:
+      - "3100:3100"
+    networks:
+      - aerosafe-network
+
+  # Visualization with Grafana
+  grafana:
+    image: grafana/grafana:latest
+    container_name: aerosafe-grafana
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-change_me_in_production}
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SECURITY_COOKIE_SECURE=true
+      - GF_SECURITY_COOKIE_SAMESITE=strict
+      - GF_SERVER_ROOT_URL=https://monitoring.aerosafe.it
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    ports:
+      - "${GRAFANA_PORT:-3001}:3000"
+    networks:
+      - aerosafe-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.rule=Host(`monitoring.aerosafe.it`)"
+      - "traefik.http.routers.grafana.entrypoints=websecure"
+      - "traefik.http.routers.grafana.tls.certresolver=letsencrypt"
+      - "com.aerosafe.service=monitoring"
+      - "com.aerosafe.environment=production"
+
+  # Backup service
+  backup:
+    image: alpine:latest
+    container_name: aerosafe-backup
+    restart: "no"
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - BACKUP_S3_BUCKET=${BACKUP_S3_BUCKET}
+      - BACKUP_S3_REGION=${BACKUP_S3_REGION:-eu-west-1}
+    volumes:
+      - ./:/app:ro
+      - nginx-logs:/backup/logs:ro
+      - grafana-data:/backup/grafana:ro
+      - prometheus-data:/backup/prometheus:ro
+      - ./scripts/backup.sh:/backup.sh:ro
+    command: sh /backup.sh
+    networks:
+      - aerosafe-network
+    profiles:
+      - backup
+    labels:
+      - "com.aerosafe.service=backup"
+      - "com.aerosafe.environment=production"
+
+# Named volumes for data persistence
+volumes:
+  nginx-logs:
+    driver: local
+  traefik-logs:
+    driver: local
+  letsencrypt-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+  loki-data:
+    driver: local
+
+# Secure network
+networks:
+  aerosafe-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+    labels:
+      - "com.aerosafe.network=production"

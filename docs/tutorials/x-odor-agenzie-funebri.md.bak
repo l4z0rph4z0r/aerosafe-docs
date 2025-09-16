@@ -1,0 +1,131 @@
+---
+title: 'X-ODOR - Guida Illustrativa per Operatori delle Agenzie Funebri'
+sidebar_position: 1
+description: 'Guida step-by-step per l'utilizzo di X-ODOR e SANAPUR ECO nel trattamento delle salme per la disinfezione e inibizione dell'odore'
+---
+
+import ISTLogo from '/img/tutorials/x-odor/IST-srl_logo.png';
+
+# X-ODOR® - Guida Illustrativa per Operatori delle Agenzie Funebri
+
+<div style={{textAlign: 'center', marginBottom: '2rem'}}>
+  <img src={ISTLogo} alt="Logo IST" style={{maxWidth: '160px', height: 'auto'}} />
+  <div style={{fontSize: '2rem', fontWeight: '700', color: 'var(--ifm-color-primary)', letterSpacing: '-0.02em', marginTop: '1rem'}}>
+    X-ODOR<sup>®</sup>
+  </div>
+</div>
+
+## Disinfezione e Inibizione dell'odore
+
+:::warning Prodotti impiegati
+
+**SANAPUR ECO** - Disinfettante naturale (Presidio Medico PMC n 20787)  
+**X-ODOR®** - Inibitore dello sviluppo di gas maleodoranti a base acqua.
+
+La combinazione di questi due prodotti durante le operazioni di preparazione del feretro determina un **abbattimento di oltre il 99% di virus e batteri** e la neutralizzazione dei gas tossici prodotti dalla materia organica. Entrambi sono assolutamente sicuri e rispettosi dell'ambiente, animali e persone.
+
+**SANAPUR ECO** disinfetta superfici di qualsiasi natura; *unico senza indicazioni di pericolo* e nessun rischio per errato utilizzo, atossico e completamente biodegradabile. Non necessita di risciacquo anche se entra a contatto con alimenti.
+
+**X-ODOR®** deodora naturalmente la materia organica, bloccando lo sviluppo delle molecole gassose maleodoranti. *Non copre gli odori sgradevoli con emissione di profumo* ma li decompone determinando condizioni gradevoli e salubri.
+
+:::
+
+## PROCESSO OPERATIVO
+
+### 1. Applicazione sul corpo
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 280px', gap: '2rem', background: '#ffffff', border: '1px solid var(--ifm-color-emphasis-200)', borderRadius: '12px', overflow: 'hidden', marginBottom: '2rem'}}>
+  <div style={{padding: '2rem'}}>
+    <p>
+      Dopo aver <strong>pulito e disinfettato la salma con SANAPUR ECO</strong>, insistendo su eventuali piaghe o ferite per fermare lo sviluppo batterico, <em>distribuire X-ODOR<sup>®</sup> su tutto il corpo</em>, con flacone spray e/o l'impiego di una spugna. Abbondare in presenza di piaghe o ferite in modo che penetri; bagnare eventuali garze protettive utilizzate.
+    </p>
+  </div>
+  <div style={{background: 'var(--ifm-color-emphasis-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem'}}>
+    <img src="/img/tutorials/x-odor/1. Applicazione sul corpo.png" alt="Applicazione sul corpo" style={{maxWidth: '140px', height: 'auto'}} />
+  </div>
+</div>
+
+### 2. Pannoloni e tamponi
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 280px', gap: '2rem', background: '#ffffff', border: '1px solid var(--ifm-color-emphasis-200)', borderRadius: '12px', overflow: 'hidden', marginBottom: '2rem'}}>
+  <div style={{padding: '2rem'}}>
+    <p>
+      <em>Spruzzare X-ODOR<sup>®</sup> nella parte interna ed esterna dei pannoloni</em>, impregnare inoltre eventuali <strong>tamponi da inserire negli orifizi</strong>.
+    </p>
+  </div>
+  <div style={{background: 'var(--ifm-color-emphasis-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem'}}>
+    <img src="/img/tutorials/x-odor/2. Pannoloni e tamponi.png" alt="Pannoloni e tamponi" style={{maxWidth: '140px', height: 'auto'}} />
+  </div>
+</div>
+
+### 3. L'abito
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 280px', gap: '2rem', background: '#ffffff', border: '1px solid var(--ifm-color-emphasis-200)', borderRadius: '12px', overflow: 'hidden', marginBottom: '2rem'}}>
+  <div style={{padding: '2rem'}}>
+    <p>
+      A preparazione ultimata <em>atomizzare omogeneamente X-ODOR<sup>®</sup>, con spray fine, su tutto il vestito</em>, in modo che il tessuto abbia la <strong>funzione di filtro ulteriore</strong> nei confronti di eventuali emissioni.
+    </p>
+  </div>
+  <div style={{background: 'var(--ifm-color-emphasis-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem'}}>
+    <img src="/img/tutorials/x-odor/3. Vestito.png" alt="Vestito" style={{maxWidth: '140px', height: 'auto'}} />
+  </div>
+</div>
+
+### 4. Materiali del feretro
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 280px', gap: '2rem', background: '#ffffff', border: '1px solid var(--ifm-color-emphasis-200)', borderRadius: '12px', overflow: 'hidden', marginBottom: '2rem'}}>
+  <div style={{padding: '2rem'}}>
+    <p>
+      Allo stesso modo <em>applicare omogeneamente X-ODOR<sup>®</sup> su tutti i materiali utilizzati nel feretro</em>: materassino, coperta, telo trasparente, cartone copri-salma, ecc.
+    </p>
+    <p>
+      L'applicazione generalizzata su tutti i materiali <strong>aumenta la protezione dall'emissione maleodorante</strong> in caso di situazioni problematiche o in presenza di perdite.
+    </p>
+  </div>
+  <div style={{background: 'var(--ifm-color-emphasis-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem'}}>
+    <img src="/img/tutorials/x-odor/4. Materiali del feretro.png" alt="Materiali del feretro" style={{maxWidth: '140px', height: 'auto'}} />
+  </div>
+</div>
+
+## NOTA IMPORTANTE
+
+:::info Protezione operatore
+
+<div style={{display: 'flex', gap: '1.5rem', alignItems: 'flex-start'}}>
+  <img src="/img/tutorials/x-odor/5. Protezione operatore.png" alt="Protezione operatore" style={{width: '4rem', height: '4rem', objectFit: 'cover', borderRadius: '50%', flexShrink: '0'}} />
+  <div>
+    Indipendentemente dalla presenza di odori, l'applicazione preventiva di **SANAPUR ECO e X-ODOR®** evitano la propagazione di sostanze nocive, quindi, *proteggono la salute dell'operatore* durante tutto il tempo dedicato all'attività di preparazione della salma.
+  </div>
+</div>
+
+:::
+
+## Video Tutorial
+
+<div style={{textAlign: 'center', margin: '3rem auto', maxWidth: '560px'}}>
+
+### Guida Video Completa
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/XXXXXXXXXXX" title="X-ODOR - Guida per Agenzie Funebri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<div style={{background: '#ffffff', border: '1px solid var(--ifm-color-emphasis-200)', borderRadius: '16px', padding: '2rem', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)', marginTop: '2rem'}}>
+  <img src="/img/tutorials/x-odor/youtube_qrcode.png" alt="QR Code per guida video" style={{maxWidth: '120px', height: 'auto', marginBottom: '1rem', borderRadius: '8px'}} />
+  <div style={{fontSize: '1rem', fontWeight: '600', color: 'var(--ifm-color-primary)', marginBottom: '0.25rem'}}>
+    Scansiona QRCode
+  </div>
+  <div style={{fontSize: '0.875rem', color: 'var(--ifm-color-emphasis-600)'}}>
+    Visualizza la versione video della Guida
+  </div>
+</div>
+
+</div>
+
+---
+
+## Contatti
+
+**IST Srls - Innovative Surfaces Treatment**  
+Sede Legale – Corso Mortara 22 - 10149 Torino (TO)  
+C.F. / P.IVA 12036620016  
+🌐 [www.aerosafe.it](https://www.aerosafe.it) - 📧 [info@aerosafe.it](mailto:info@aerosafe.it)  
+📞 +39 351565918

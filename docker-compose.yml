@@ -1,0 +1,171 @@
+version: '3.8'
+
+services:
+  # Production service
+  aerosafe-docs-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
+        DOCUSAURUS_URL: https://docs.aerosafe.it
+        DOCUSAURUS_BASE_URL: /
+    container_name: aerosafe-docs-production
+    restart: unless-stopped
+    ports:
+      - "${PROD_PORT:-8080}:80"
+    environment:
+      - NODE_ENV=production
+      - NGINX_WORKER_PROCESSES=auto
+      - NGINX_WORKER_CONNECTIONS=1024
+    networks:
+      - aerosafe-network
+    volumes:
+      - nginx-cache:/var/cache/nginx
+      - nginx-logs:/var/log/nginx
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aerosafe-docs-prod.rule=Host(`docs.aerosafe.it`)"
+      - "traefik.http.routers.aerosafe-docs-prod.tls=true"
+      - "traefik.http.routers.aerosafe-docs-prod.tls.certresolver=letsencrypt"
+      - "traefik.http.services.aerosafe-docs-prod.loadbalancer.server.port=80"
+    profiles:
+      - production
+
+  # Staging service
+  aerosafe-docs-staging:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
+        DOCUSAURUS_URL: https://staging-docs.aerosafe.it
+        DOCUSAURUS_BASE_URL: /
+    container_name: aerosafe-docs-staging
+    restart: unless-stopped
+    ports:
+      - "${STAGING_PORT:-8081}:80"
+    environment:
+      - NODE_ENV=production
+      - NGINX_WORKER_PROCESSES=1
+      - NGINX_WORKER_CONNECTIONS=512
+    networks:
+      - aerosafe-network
+    volumes:
+      - nginx-cache-staging:/var/cache/nginx
+      - nginx-logs-staging:/var/log/nginx
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aerosafe-docs-staging.rule=Host(`staging-docs.aerosafe.it`)"
+      - "traefik.http.routers.aerosafe-docs-staging.tls=true"
+      - "traefik.http.routers.aerosafe-docs-staging.tls.certresolver=letsencrypt"
+      - "traefik.http.services.aerosafe-docs-staging.loadbalancer.server.port=80"
+    profiles:
+      - staging
+
+  # Development service (hot reload)
+  aerosafe-docs-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        NODE_ENV: development
+    container_name: aerosafe-docs-development
+    restart: unless-stopped
+    ports:
+      - "${DEV_PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - FAST_REFRESH=true
+    networks:
+      - aerosafe-network
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/build
+    command: npm start
+    profiles:
+      - development
+
+  # Reverse proxy with Traefik (optional)
+  traefik:
+    image: traefik:v3.0
+    container_name: aerosafe-traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080" # Dashboard
+    environment:
+      - TRAEFIK_API_DASHBOARD=true
+      - TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL=${ACME_EMAIL:-admin@aerosafe.it}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik-certificates:/certificates
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+    networks:
+      - aerosafe-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.aerosafe.it`)"
+      - "traefik.http.routers.traefik.tls=true"
+      - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+    profiles:
+      - proxy
+
+  # Monitoring with Prometheus (optional)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: aerosafe-prometheus
+    restart: unless-stopped
+    ports:
+      - "${PROMETHEUS_PORT:-9090}:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      - aerosafe-network
+    profiles:
+      - monitoring
+
+  # Log aggregation with Grafana (optional)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: aerosafe-grafana
+    restart: unless-stopped
+    ports:
+      - "${GRAFANA_PORT:-3001}:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-aerosafe123}
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - aerosafe-network
+    profiles:
+      - monitoring
+
+networks:
+  aerosafe-network:
+    name: aerosafe-docs-network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  nginx-cache:
+    name: aerosafe-nginx-cache-prod
+  nginx-logs:
+    name: aerosafe-nginx-logs-prod
+  nginx-cache-staging:
+    name: aerosafe-nginx-cache-staging  
+  nginx-logs-staging:
+    name: aerosafe-nginx-logs-staging
+  traefik-certificates:
+    name: aerosafe-traefik-certificates
+  prometheus-data:
+    name: aerosafe-prometheus-data
+  grafana-data:
+    name: aerosafe-grafana-data

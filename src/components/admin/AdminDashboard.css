@@ -1,0 +1,521 @@
+/* Admin Dashboard Styles */
+.admin-dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.admin-dashboard-loading,
+.admin-dashboard-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1rem;
+}
+
+.admin-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #16a34a;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Header */
+.admin-dashboard-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.admin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-header-logo {
+  height: 32px;
+  width: auto;
+}
+
+.admin-dashboard-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.admin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-user-info {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.admin-logout-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-logout-button:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* Navigation */
+.admin-dashboard-nav {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 2rem;
+  display: flex;
+  gap: 0;
+}
+
+.admin-nav-item {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 2px solid transparent;
+}
+
+.admin-nav-item:hover {
+  color: #374151;
+  background: #f9fafb;
+}
+
+.admin-nav-item.active {
+  color: #16a34a;
+  border-bottom-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.admin-nav-item:disabled {
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+/* Main Content */
+.admin-dashboard-main {
+  flex: 1;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.admin-error-banner {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.admin-error-close {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #b91c1c;
+}
+
+/* File Manager */
+.admin-file-manager-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-toolbar-left,
+.admin-toolbar-center,
+.admin-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-directory-switcher {
+  display: flex;
+  background: #f3f4f6;
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.admin-dir-button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.admin-dir-button.active {
+  background: #ffffff;
+  color: #16a34a;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.admin-search-container {
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.admin-search-input {
+  border: none;
+  background: none;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  width: 200px;
+  outline: none;
+}
+
+.admin-search-button {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.admin-search-button:hover {
+  background: #15803d;
+}
+
+.admin-new-file-button,
+.admin-refresh-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-new-file-button:hover,
+.admin-refresh-button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* File List */
+.admin-file-list {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.admin-file-list-empty {
+  padding: 3rem;
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.admin-file-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-file-item:last-child {
+  border-bottom: none;
+}
+
+.admin-file-item:hover {
+  background: #f9fafb;
+}
+
+.admin-file-item.file:hover {
+  background: #f0fdf4;
+}
+
+.admin-file-icon {
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.admin-file-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-file-name {
+  font-weight: 500;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.admin-file-readonly {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.admin-file-meta {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* Settings */
+.admin-settings {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.admin-settings h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 2rem 0;
+}
+
+.admin-settings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.admin-settings-section {
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.admin-settings-section h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 1rem 0;
+}
+
+.admin-settings-section p {
+  color: #6b7280;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+.admin-settings-actions {
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.admin-settings-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-settings-button.danger {
+  background: #ef4444;
+  color: white;
+}
+
+.admin-settings-button.danger:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-dashboard-header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .admin-header-right {
+    align-self: flex-end;
+  }
+
+  .admin-dashboard-nav {
+    padding: 0 1rem;
+    overflow-x: auto;
+  }
+
+  .admin-dashboard-main {
+    padding: 1rem;
+  }
+
+  .admin-file-manager-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-toolbar-left,
+  .admin-toolbar-center,
+  .admin-toolbar-right {
+    justify-content: center;
+  }
+
+  .admin-search-input {
+    width: 100%;
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-file-item {
+    padding: 0.75rem;
+  }
+
+  .admin-file-name {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .admin-settings {
+    padding: 1rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .admin-dashboard {
+    background: #111827;
+    color: #f9fafb;
+  }
+
+  .admin-dashboard-header,
+  .admin-file-list,
+  .admin-settings {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .admin-dashboard-header h1,
+  .admin-file-name {
+    color: #f9fafb;
+  }
+
+  .admin-nav-item {
+    color: #d1d5db;
+  }
+
+  .admin-nav-item:hover {
+    color: #f9fafb;
+    background: #374151;
+  }
+
+  .admin-nav-item.active {
+    background: #064e3b;
+    color: #10b981;
+  }
+
+  .admin-file-item:hover {
+    background: #374151;
+  }
+
+  .admin-file-item.file:hover {
+    background: #064e3b;
+  }
+
+  .admin-search-container {
+    background: #374151;
+    border-color: #4b5563;
+  }
+
+  .admin-search-input {
+    color: #f9fafb;
+  }
+
+  .admin-settings-section {
+    background: #374151;
+    border-color: #4b5563;
+  }
+
+  .admin-settings-section h3 {
+    color: #e5e7eb;
+  }
+
+  .admin-settings-section p {
+    color: #d1d5db;
+  }
+}
+
+/* Print styles */
+@media print {
+  .admin-dashboard-header,
+  .admin-dashboard-nav,
+  .admin-file-manager-toolbar {
+    display: none;
+  }
+  
+  .admin-dashboard {
+    background: white;
+    color: black;
+  }
+}

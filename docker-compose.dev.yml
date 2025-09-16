@@ -1,0 +1,34 @@
+services:
+  # Development service for AeroSafe Documentation
+  aerosafe-docs-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        NODE_ENV: development
+    container_name: aerosafe-docs-dev
+    restart: unless-stopped
+    ports:
+      - "${DEV_PORT:-7112}:3000"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - FAST_REFRESH=true
+      - DOCUSAURUS_URL=http://localhost:${DEV_PORT:-7112}
+      - DOCUSAURUS_BASE_URL=/
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/build
+    command: npm start -- --host 0.0.0.0 --port 3000
+    networks:
+      - aerosafe-dev-network
+
+networks:
+  aerosafe-dev-network:
+    name: aerosafe-docs-dev-network
+    driver: bridge
+
+volumes:
+  node_modules:
+    name: aerosafe-docs-node-modules

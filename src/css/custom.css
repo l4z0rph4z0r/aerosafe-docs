@@ -1,0 +1,427 @@
+/**
+ * AeroSafe Documentation Custom Styles
+ * 
+ * This file contains all custom CSS for the AeroSafe documentation portal.
+ * It includes AeroSafe branding colors, custom components, and responsive design.
+ */
+
+/* AeroSafe Color Palette */
+:root {
+  /* Primary AeroSafe Blue - #2563eb */
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
+  
+  /* Secondary AeroSafe Green - #16a34a */
+  --ifm-color-secondary: #16a34a;
+  --ifm-color-secondary-dark: #15803d;
+  --ifm-color-secondary-darker: #166534;
+  --ifm-color-secondary-darkest: #14532d;
+  --ifm-color-secondary-light: #22c55e;
+  --ifm-color-secondary-lighter: #4ade80;
+  --ifm-color-secondary-lightest: #86efac;
+  
+  /* Additional AeroSafe Brand Colors */
+  --aerosafe-blue: #2563eb;
+  --aerosafe-green: #16a34a;
+  --aerosafe-gray: #6b7280;
+  --aerosafe-light-gray: #f3f4f6;
+  --aerosafe-dark-gray: #374151;
+  
+  /* Typography and spacing */
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-line-height-base: 1.6;
+  
+  /* Code highlighting */
+  --docusaurus-highlighted-code-line-bg: rgba(37, 99, 235, 0.1);
+  
+  /* Custom shadow for cards and components */
+  --aerosafe-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --aerosafe-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode colors */
+[data-theme='dark'] {
+  /* Adjusted primary colors for better contrast in dark mode */
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1d4ed8;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
+  
+  /* Secondary colors in dark mode */
+  --ifm-color-secondary: #4ade80;
+  --ifm-color-secondary-dark: #22c55e;
+  --ifm-color-secondary-darker: #16a34a;
+  --ifm-color-secondary-darkest: #15803d;
+  
+  /* Dark mode specific colors */
+  --aerosafe-blue: #60a5fa;
+  --aerosafe-green: #4ade80;
+  
+  /* Dark background override */
+  --ifm-background-color: #1a1a1a;
+  --ifm-background-surface-color: #262626;
+  
+  --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.15);
+}
+
+/* Custom component styles */
+
+/* GitHub link icon in navbar */
+.header-github-link:hover {
+  opacity: 0.6;
+}
+
+.header-github-link:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+[data-theme='dark'] .header-github-link:before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+/* AeroSafe specific component styles */
+.aerosafe-hero {
+  background: linear-gradient(135deg, var(--aerosafe-blue) 0%, var(--aerosafe-green) 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.aerosafe-card {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--aerosafe-shadow);
+  transition: box-shadow 0.2s ease;
+}
+
+.aerosafe-card:hover {
+  box-shadow: var(--aerosafe-shadow-lg);
+}
+
+.aerosafe-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--aerosafe-blue);
+  color: white;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.aerosafe-badge--green {
+  background: var(--aerosafe-green);
+}
+
+/* Industry-specific styling */
+.healthcare-accent { color: var(--aerosafe-blue); }
+.food-safety-accent { color: var(--aerosafe-green); }
+.hospitality-accent { color: #f59e0b; }
+.funeral-accent { color: #6b7280; }
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .aerosafe-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .aerosafe-card {
+    padding: 1rem;
+  }
+}
+
+/* Custom admonitions for AeroSafe */
+.admonition.admonition-aerosafe {
+  border-left-color: var(--aerosafe-blue);
+}
+
+.admonition.admonition-aerosafe .admonition-heading h5 {
+  color: var(--aerosafe-blue);
+}
+
+.admonition.admonition-safety {
+  border-left-color: #ef4444;
+}
+
+.admonition.admonition-safety .admonition-heading h5 {
+  color: #ef4444;
+}
+
+/* Custom footer styling */
+.footer--dark {
+  background: linear-gradient(135deg, #1e3a8a 0%, #14532d 100%);
+}
+
+/* Navigation enhancements */
+.navbar__logo {
+  height: 32px;
+  margin-right: 1rem;
+}
+
+.navbar__title {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* Additional professional enhancements */
+
+/* Better button styling */
+.button {
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.button--lg {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+/* Card component improvements */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Hero section enhancements */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  opacity: 0.3;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Improved typography */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+}
+
+/* Link improvements */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Table of Contents improvements */
+.table-of-contents__link {
+  border-left: 2px solid transparent;
+  padding-left: 0.75rem;
+  transition: border-color 0.2s ease;
+}
+
+.table-of-contents__link--active {
+  border-left-color: var(--ifm-color-primary);
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+/* Sidebar improvements */
+.menu__link {
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.menu__link--active {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--ifm-color-primary);
+}
+
+/* Footer improvements */
+.footer {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Search box improvements */
+.navbar__search-input {
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* Custom intro page guide sections */
+.guide-section {
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.guide-section--getting-started {
+  background-color: var(--ifm-color-primary-contrast-background);
+}
+
+.guide-section--technical {
+  background-color: var(--ifm-color-secondary-contrast-background);
+}
+
+/* Contact section styling */
+.contact-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode specific overrides */
+[data-theme='dark'] .guide-section {
+  background-color: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .guide-section--getting-started {
+  background-color: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+[data-theme='dark'] .guide-section--technical {
+  background-color: rgba(74, 222, 128, 0.1);
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+[data-theme='dark'] .contact-section {
+  background-color: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+/* Mobile improvements */
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 3rem 0;
+  }
+
+  .button--lg {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .guide-section,
+  .contact-section {
+    padding: 1rem;
+  }
+
+  /* Improve touch targets */
+  .navbar__item,
+  .menu__link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Better mobile navigation */
+  .navbar__toggle {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Accessibility improvements */
+/* Focus indicators */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* High contrast improvements */
+@media (prefers-contrast: high) {
+  .aerosafe-card,
+  .card {
+    border: 2px solid var(--ifm-color-emphasis-500);
+  }
+
+  .button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .footer,
+  .table-of-contents,
+  .theme-doc-sidebar-container {
+    display: none;
+  }
+
+  .main-wrapper {
+    margin: 0;
+  }
+
+  .aerosafe-hero {
+    background: none;
+    color: black;
+  }
+}

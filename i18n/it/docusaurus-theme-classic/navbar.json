@@ -1,0 +1,38 @@
+{
+  "title": {
+    "message": "AeroSafe",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "AeroSafe Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Prodotti": {
+    "message": "Prodotti",
+    "description": "Navbar item with label Prodotti"
+  },
+  "item.label.Settori": {
+    "message": "Settori",
+    "description": "Navbar item with label Settori"
+  },
+  "item.label.Guide": {
+    "message": "Guide",
+    "description": "Navbar item with label Guide"
+  },
+  "item.label.API": {
+    "message": "API",
+    "description": "Navbar item with label API"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.Sito Web": {
+    "message": "Sito Web",
+    "description": "Navbar item with label Sito Web"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

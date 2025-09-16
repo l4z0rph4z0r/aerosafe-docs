@@ -1,0 +1,501 @@
+/* DosageCalculator.module.css */
+
+.calculator {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+}
+
+.header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1565c0;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #424242;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e3f2fd;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #424242;
+  margin: 0;
+}
+
+.input,
+.select {
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #fff;
+  color: #424242;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #1565c0;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1);
+}
+
+.input:hover,
+.select:hover {
+  border-color: #bbbbbb;
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.chemicalInfo {
+  padding: 16px;
+  background: #f8f9ff;
+  border-radius: 8px;
+  border: 1px solid #e3f2fd;
+  margin-top: 12px;
+}
+
+.chemicalDescription {
+  color: #424242;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.chemicalDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.8125rem;
+}
+
+.defaultDosage,
+.dilution {
+  padding: 6px 12px;
+  background: white;
+  border-radius: 6px;
+  color: #1565c0;
+  font-weight: 500;
+  border: 1px solid #e3f2fd;
+}
+
+.customDosageSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: #f8f9ff;
+  border-radius: 8px;
+  border: 1px solid #e3f2fd;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.checkbox input[type="checkbox"] {
+  margin: 0;
+  accent-color: #1565c0;
+  transform: scale(1.1);
+}
+
+.checkboxLabel {
+  color: #424242;
+  font-weight: 500;
+  user-select: none;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.button {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.primaryButton {
+  background: #1565c0;
+  color: white;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: #0d47a1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+}
+
+.primaryButton:disabled {
+  background: #bbbbbb;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #1565c0;
+  border: 2px solid #1565c0;
+}
+
+.secondaryButton:hover {
+  background: #e3f2fd;
+  transform: translateY(-1px);
+}
+
+.results {
+  margin-top: 32px;
+  padding: 24px;
+  background: #f8f9ff;
+  border-radius: 12px;
+  border: 1px solid #e3f2fd;
+}
+
+.resultGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.resultItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.resultLabel {
+  font-weight: 500;
+  color: #424242;
+  font-size: 0.875rem;
+}
+
+.resultValue {
+  font-weight: 600;
+  color: #1565c0;
+  font-size: 1rem;
+}
+
+.safetySection {
+  margin-top: 24px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #ff9800;
+}
+
+.safetyTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e65100;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.safetyTitle::before {
+  content: "⚠️";
+  font-size: 1.2rem;
+}
+
+.safetyList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.safetyItem {
+  padding: 8px 0;
+  color: #424242;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.safetyItem:last-child {
+  border-bottom: none;
+}
+
+.safetyItem::before {
+  content: "•";
+  color: #ff9800;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.applicationInfo {
+  margin-top: 20px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.applicationTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #424242;
+  margin: 0 0 12px 0;
+}
+
+.applicationTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.applicationTag {
+  padding: 6px 12px;
+  background: #e3f2fd;
+  color: #1565c0;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid #bbdefb;
+}
+
+.validationMessage {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: #fff3e0;
+  color: #ef6c00;
+  border-radius: 8px;
+  border-left: 4px solid #ff9800;
+  font-size: 0.875rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .calculator {
+    margin: 16px;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .form {
+    gap: 24px;
+  }
+  
+  .customDosageSection {
+    padding: 16px;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .button {
+    width: 100%;
+  }
+  
+  .resultGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .resultItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .chemicalDetails {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .applicationTags {
+    gap: 6px;
+  }
+  
+  .applicationTag {
+    font-size: 0.6875rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    margin: 8px;
+    padding: 16px;
+  }
+  
+  .form {
+    gap: 20px;
+  }
+  
+  .section {
+    gap: 12px;
+  }
+  
+  .safetySection {
+    padding: 16px;
+  }
+  
+  .safetyItem {
+    font-size: 0.8125rem;
+    padding: 6px 0;
+    padding-left: 16px;
+  }
+}
+
+/* Animation for auto-calculation */
+.results {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility improvements */
+.input:focus,
+.select:focus,
+.button:focus,
+.checkbox input:focus {
+  outline: 2px solid #1565c0;
+  outline-offset: 2px;
+}
+
+.checkbox:focus-within {
+  outline: 2px solid #1565c0;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .input,
+  .select,
+  .results {
+    transition: none;
+    animation: none;
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .chemicalInfo,
+  .customDosageSection,
+  .results {
+    border-width: 2px;
+  }
+  
+  .safetySection {
+    border-left-width: 6px;
+  }
+  
+  .applicationTag {
+    border-width: 2px;
+  }
+}
+
+/* Dark mode considerations (if needed) */
+@media (prefers-color-scheme: dark) {
+  .calculator {
+    background: #1e1e1e;
+    color: #e0e0e0;
+    border-color: #404040;
+  }
+  
+  .input,
+  .select {
+    background: #2d2d2d;
+    border-color: #404040;
+    color: #e0e0e0;
+  }
+  
+  .chemicalInfo,
+  .customDosageSection,
+  .results {
+    background: #2d2d2d;
+    border-color: #404040;
+  }
+  
+  .resultItem,
+  .applicationInfo {
+    background: #2d2d2d;
+    border-color: #404040;
+  }
+  
+  .safetySection {
+    background: #2d2d2d;
+  }
+}

@@ -1,0 +1,61 @@
+# Production Dockerfile for AeroSafe Documentation
+FROM node:18-alpine AS builder
+
+# Install dependencies for building
+RUN apk add --no-cache python3 make g++ 
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci --only=production && \
+    npm install --save-dev @docusaurus/core @docusaurus/preset-classic
+
+# Copy source code
+COPY . .
+
+# Build the application
+RUN npm run build
+
+# Production stage
+FROM nginx:alpine
+
+# Install Node.js for API server
+RUN apk add --no-cache nodejs npm
+
+# Copy built static files
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# Copy nginx configuration
+COPY nginx.prod.conf /etc/nginx/nginx.conf
+
+# Copy API server files
+WORKDIR /api
+COPY --from=builder /app/src/api ./src/api
+COPY --from=builder /app/package*.json ./
+
+# Install only production dependencies for API
+RUN npm ci --only=production
+
+# Create startup script
+RUN echo '#!/bin/sh' > /start.sh && \
+    echo 'node /api/server.js &' >> /start.sh && \
+    echo 'nginx -g "daemon off;"' >> /start.sh && \
+    chmod +x /start.sh
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost/ || exit 1
+
+# Security: Run as non-root user
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001 && \
+    chown -R nodejs:nodejs /api /usr/share/nginx/html
+
+# Expose port
+EXPOSE 80
+
+# Start services
+CMD ["/start.sh"]

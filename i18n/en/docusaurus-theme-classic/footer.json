@@ -1,0 +1,86 @@
+{
+  "link.title.Documentazione": {
+    "message": "Documentation",
+    "description": "The title of the footer links column with title=Documentation in the footer"
+  },
+  "link.title.Settori di Applicazione": {
+    "message": "Application Areas",
+    "description": "The title of the footer links column with title=Application Areas in the footer"
+  },
+  "link.title.AeroSafe": {
+    "message": "AeroSafe",
+    "description": "The title of the footer links column with title=AeroSafe in the footer"
+  },
+  "link.title.Risorse": {
+    "message": "Resources",
+    "description": "The title of the footer links column with title=Resources in the footer"
+  },
+  "link.item.label.Prodotti DryFogS": {
+    "message": "DryFogS Products",
+    "description": "The label of footer link with label=DryFogS Products linking to /products/dryfogs"
+  },
+  "link.item.label.Soluzioni Chimiche": {
+    "message": "Chemical Solutions",
+    "description": "The label of footer link with label=Chemical Solutions linking to /products/chemicals"
+  },
+  "link.item.label.Guide Installazione": {
+    "message": "Installation Guides",
+    "description": "The label of footer link with label=Installation Guides linking to /guides/installation"
+  },
+  "link.item.label.API Reference": {
+    "message": "API Reference",
+    "description": "The label of footer link with label=API Reference linking to /api"
+  },
+  "link.item.label.Sanitario": {
+    "message": "Healthcare",
+    "description": "The label of footer link with label=Healthcare linking to /industries/healthcare"
+  },
+  "link.item.label.Sicurezza Alimentare": {
+    "message": "Food Safety",
+    "description": "The label of footer link with label=Food Safety linking to /industries/food-safety"
+  },
+  "link.item.label.Hospitality": {
+    "message": "Hospitality",
+    "description": "The label of footer link with label=Hospitality linking to /industries/hospitality"
+  },
+  "link.item.label.Servizi Funebri": {
+    "message": "Funeral Services",
+    "description": "The label of footer link with label=Funeral Services linking to /industries/funeral-services"
+  },
+  "link.item.label.Sito Web": {
+    "message": "Website",
+    "description": "The label of footer link with label=Website linking to https://www.aerosafe.it"
+  },
+  "link.item.label.Contatti": {
+    "message": "Contact",
+    "description": "The label of footer link with label=Contact linking to https://www.aerosafe.it/contatti"
+  },
+  "link.item.label.Supporto": {
+    "message": "Support",
+    "description": "The label of footer link with label=Support linking to https://www.aerosafe.it/supporto"
+  },
+  "link.item.label.Blog": {
+    "message": "Blog",
+    "description": "The label of footer link with label=Blog linking to /blog"
+  },
+  "link.item.label.Documentazione GitHub": {
+    "message": "GitHub Documentation",
+    "description": "The label of footer link with label=GitHub Documentation linking to https://github.com/aerosafe-ist/aerosafe-docs"
+  },
+  "link.item.label.Privacy Policy": {
+    "message": "Privacy Policy",
+    "description": "The label of footer link with label=Privacy Policy linking to https://www.aerosafe.it/privacy"
+  },
+  "link.item.label.Termini di Servizio": {
+    "message": "Terms of Service",
+    "description": "The label of footer link with label=Terms of Service linking to https://www.aerosafe.it/termini"
+  },
+  "copyright": {
+    "message": "\n        <div style=\"margin-bottom: 16px;\">\n          <strong>AeroSafe (IST S.r.l.s.)</strong><br/>\n          DryFogS Nebulizers and Professional Sanitizing Solutions\n        </div>\n        <div style=\"font-size: 14px; opacity: 0.8;\">\n          Copyright © 2025 IST S.r.l.s. All rights reserved.<br/>\n          Documentation built with <a href=\"https://docusaurus.io/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #25c2a0;\">Docusaurus</a>\n        </div>\n      ",
+    "description": "The footer copyright"
+  },
+  "logo.alt": {
+    "message": "AeroSafe Logo",
+    "description": "The alt text of footer logo"
+  }
+}

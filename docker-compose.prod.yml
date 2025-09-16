@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  aerosafe-docs-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      args:
+        - NODE_ENV=production
+        - DOCUSAURUS_URL=https://docs.aerosafe.it
+    image: aerosafe-docs:production
+    container_name: aerosafe-docs-production
+    ports:
+      - "8080:80"
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - REACT_APP_ADMIN_USERNAME=${REACT_APP_ADMIN_USERNAME}
+      - REACT_APP_ADMIN_PASSWORD=${REACT_APP_ADMIN_PASSWORD}
+      - ADMIN_JWT_SECRET=${ADMIN_JWT_SECRET}
+      - ADMIN_TOKEN_EXPIRY=${ADMIN_TOKEN_EXPIRY}
+      - API_PORT=3001
+      - SITE_URL=https://docs.aerosafe.it
+      - API_URL=https://docs.aerosafe.it/api
+    volumes:
+      - ./docs:/api/docs:rw
+      - ./blog:/api/blog:rw
+      - docs-backups:/api/docs/.backups
+      - blog-backups:/api/blog/.backups
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - aerosafe-network
+    labels:
+      - "com.aerosafe.service=documentation"
+      - "com.aerosafe.environment=production"
+      - "com.aerosafe.version=1.0.0"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Optional: Redis for session management (production)
+  redis:
+    image: redis:alpine
+    container_name: aerosafe-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-AeroSafeRedis2024}
+    networks:
+      - aerosafe-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Optional: Backup service
+  backup:
+    image: alpine:latest
+    container_name: aerosafe-backup
+    volumes:
+      - ./docs:/source/docs:ro
+      - ./blog:/source/blog:ro
+      - ./backups:/backups
+    command: |
+      sh -c "
+      while true; do
+        echo 'Starting backup at $$(date)'
+        tar -czf /backups/backup-$$(date +%Y%m%d-%H%M%S).tar.gz /source/
+        echo 'Backup completed'
+        # Keep only last 7 days of backups
+        find /backups -type f -name 'backup-*.tar.gz' -mtime +7 -delete
+        # Sleep for 24 hours
+        sleep 86400
+      done
+      "
+    networks:
+      - aerosafe-network
+    restart: unless-stopped
+
+networks:
+  aerosafe-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  docs-backups:
+    driver: local
+  blog-backups:
+    driver: local
+  redis-data:
+    driver: local

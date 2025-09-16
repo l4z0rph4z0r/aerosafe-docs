@@ -1,0 +1,19 @@
+# Development Dockerfile for AeroSafe Documentation
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy all source files
+COPY . .
+
+# Expose port
+EXPOSE 7112
+
+# Start development server
+CMD ["npm", "start", "--", "--host", "0.0.0.0", "--port", "7112"]

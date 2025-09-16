@@ -1,0 +1,46 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.productsSidebar.category.Nebulizzatori DryFogS": {
+    "message": "Nebulizzatori DryFogS",
+    "description": "The label for category Nebulizzatori DryFogS in sidebar productsSidebar"
+  },
+  "sidebar.productsSidebar.category.Soluzioni Chimiche": {
+    "message": "Soluzioni Chimiche",
+    "description": "The label for category Soluzioni Chimiche in sidebar productsSidebar"
+  },
+  "sidebar.industriesSidebar.category.Settore Sanitario": {
+    "message": "Settore Sanitario",
+    "description": "The label for category Settore Sanitario in sidebar industriesSidebar"
+  },
+  "sidebar.industriesSidebar.category.Sicurezza Alimentare": {
+    "message": "Sicurezza Alimentare",
+    "description": "The label for category Sicurezza Alimentare in sidebar industriesSidebar"
+  },
+  "sidebar.industriesSidebar.category.Hospitality": {
+    "message": "Hospitality",
+    "description": "The label for category Hospitality in sidebar industriesSidebar"
+  },
+  "sidebar.industriesSidebar.category.Servizi Funebri": {
+    "message": "Servizi Funebri",
+    "description": "The label for category Servizi Funebri in sidebar industriesSidebar"
+  },
+  "sidebar.guidesSidebar.category.Installazione": {
+    "message": "Installazione",
+    "description": "The label for category Installazione in sidebar guidesSidebar"
+  },
+  "sidebar.guidesSidebar.category.Manutenzione": {
+    "message": "Manutenzione",
+    "description": "The label for category Manutenzione in sidebar guidesSidebar"
+  },
+  "sidebar.guidesSidebar.category.Risoluzione Problemi": {
+    "message": "Risoluzione Problemi",
+    "description": "The label for category Risoluzione Problemi in sidebar guidesSidebar"
+  },
+  "sidebar.apiSidebar.category.API Reference": {
+    "message": "API Reference",
+    "description": "The label for category API Reference in sidebar apiSidebar"
+  }
+}

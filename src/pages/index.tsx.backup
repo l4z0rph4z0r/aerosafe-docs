@@ -1,0 +1,139 @@
+import type {ReactNode} from 'react';
+import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import Heading from '@theme/Heading';
+
+import styles from './index.module.css';
+
+function HomepageHeader() {
+  return (
+    <header className={clsx('hero', styles.heroBanner, styles.aeroSafeHero)}>
+      <div className="container">
+        <Heading as="h1" className={styles.heroTitle}>
+          Documentazione Tecnica AeroSafe
+        </Heading>
+        <p className={styles.heroSubtitle}>
+          Scopri le soluzioni DryFogS per la sanificazione professionale degli ambienti
+        </p>
+        <div className={styles.buttons}>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/dispositivi/introduzione">
+            Inizia la Consultazione
+          </Link>
+          <Link
+            className={clsx("button button--outline button--lg", styles.buttonSecondary)}
+            to="/docs/guide/installazione">
+            Guide di Installazione
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function QuickLinks() {
+  const quickLinks = [
+    {
+      title: 'Nebulizzatori DryFogS',
+      description: 'Gamma completa di dispositivi per la nebulizzazione professionale',
+      link: '/docs/dispositivi/dryfogs-pro',
+      icon: '🌫️'
+    },
+    {
+      title: 'Soluzioni Chimiche',
+      description: 'Prodotti biocidi per ogni esigenza di sanificazione',
+      link: '/docs/prodotti/soluzioni-biocide',
+      icon: '🧪'
+    },
+    {
+      title: 'Calcolatore Dosaggio',
+      description: 'Strumento per calcolare la quantità ottimale di prodotto',
+      link: '/tools/dosage-calculator',
+      icon: '📊'
+    },
+    {
+      title: 'Supporto Tecnico',
+      description: 'Assistenza e manutenzione per i tuoi dispositivi',
+      link: '/docs/supporto/contatti',
+      icon: '🔧'
+    }
+  ];
+
+  return (
+    <section className={styles.quickLinks}>
+      <div className="container">
+        <div className="text--center margin-bottom--xl">
+          <Heading as="h2">Accesso Rapido</Heading>
+          <p>Trova rapidamente le informazioni di cui hai bisogno</p>
+        </div>
+        <div className="row">
+          {quickLinks.map((item, idx) => (
+            <div key={idx} className="col col--3 margin-bottom--md">
+              <Link to={item.link} className={styles.quickLinkCard}>
+                <div className={styles.quickLinkIcon}>{item.icon}</div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AeroSafeFooter() {
+  return (
+    <section className={styles.aeroSafeFooter}>
+      <div className="container">
+        <div className="row">
+          <div className="col col--6">
+            <h3>AeroSafe Ist</h3>
+            <p>
+              Leader nella sanificazione professionale degli ambienti con tecnologia DryFogS.
+              Soluzioni innovative per sanità, industria alimentare e settore funerario.
+            </p>
+          </div>
+          <div className="col col--3">
+            <h4>Documentazione</h4>
+            <ul>
+              <li><Link to="/docs/dispositivi/introduzione">Dispositivi</Link></li>
+              <li><Link to="/docs/prodotti/soluzioni-biocide">Prodotti</Link></li>
+              <li><Link to="/docs/guide/installazione">Guide Tecniche</Link></li>
+              <li><Link to="/docs/settori/sanita">Settori</Link></li>
+            </ul>
+          </div>
+          <div className="col col--3">
+            <h4>Supporto</h4>
+            <ul>
+              <li><Link to="/docs/supporto/contatti">Contatti</Link></li>
+              <li><Link to="/docs/supporto/assistenza">Assistenza</Link></li>
+              <li><Link to="/docs/supporto/garanzia">Garanzia</Link></li>
+              <li><Link to="/docs/faq">FAQ</Link></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function Home(): ReactNode {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <Layout
+      title="Documentazione Tecnica"
+      description="Documentazione completa per i dispositivi DryFogS e le soluzioni di sanificazione AeroSafe">
+      <HomepageHeader />
+      <main>
+        <HomepageFeatures />
+        <QuickLinks />
+        <AeroSafeFooter />
+      </main>
+    </Layout>
+  );
+}

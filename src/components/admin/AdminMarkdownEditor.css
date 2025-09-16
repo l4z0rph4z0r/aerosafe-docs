@@ -1,0 +1,516 @@
+/* Admin Markdown Editor Styles */
+.admin-markdown-editor {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 200px);
+  min-height: 600px;
+}
+
+.admin-editor-loading,
+.admin-editor-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  gap: 1rem;
+}
+
+/* Editor Header */
+.admin-editor-header {
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-editor-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-editor-title h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.admin-editor-status {
+  font-size: 0.875rem;
+}
+
+.admin-dirty-indicator {
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+.admin-saved-indicator {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.admin-editor-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-editor-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.admin-editor-button.primary {
+  background: #16a34a;
+  color: white;
+}
+
+.admin-editor-button.primary:hover:not(:disabled) {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.admin-editor-button.secondary {
+  background: #6b7280;
+  color: white;
+}
+
+.admin-editor-button.secondary:hover {
+  background: #4b5563;
+}
+
+.admin-editor-button.danger {
+  background: #ef4444;
+  color: white;
+}
+
+.admin-editor-button.danger:hover {
+  background: #dc2626;
+}
+
+.admin-editor-button:disabled {
+  background: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Frontmatter Editor */
+.admin-frontmatter-editor {
+  background: #f0fdf4;
+  border-bottom: 1px solid #bbf7d0;
+  padding: 1rem 1.5rem;
+}
+
+.admin-frontmatter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.admin-frontmatter-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #166534;
+  margin: 0;
+}
+
+.admin-add-field-button {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-add-field-button:hover {
+  background: #15803d;
+}
+
+.admin-frontmatter-fields {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.admin-frontmatter-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-field-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #166534;
+  min-width: 80px;
+  text-align: right;
+}
+
+.admin-field-input-group {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.admin-field-input {
+  flex: 1;
+  padding: 0.375rem 0.5rem;
+  border: 1px solid #d1fae5;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: white;
+}
+
+.admin-field-input:focus {
+  outline: none;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.1);
+}
+
+.admin-remove-field-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.admin-remove-field-button:hover {
+  background: #dc2626;
+}
+
+/* Editor Toolbar */
+.admin-editor-toolbar {
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.admin-editor-toolbar button {
+  background: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 0.375rem 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-editor-toolbar button:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+.admin-editor-toolbar button:active {
+  background: #d1d5db;
+}
+
+/* Editor Container */
+.admin-editor-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-markdown-preview {
+  padding: 2rem;
+  height: 100%;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.markdown-body {
+  max-width: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+.markdown-body h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: #1f2937;
+}
+
+.markdown-body h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem 0;
+  color: #374151;
+}
+
+.markdown-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.75rem 0;
+  color: #374151;
+}
+
+.markdown-body p {
+  margin: 0 0 1rem 0;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.markdown-body em {
+  font-style: italic;
+}
+
+.markdown-body code {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 3px;
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875em;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+/* Editor Footer */
+.admin-editor-footer {
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.admin-editor-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #6b7280;
+}
+
+.admin-auto-save-info {
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-markdown-editor {
+    height: calc(100vh - 120px);
+  }
+
+  .admin-editor-header {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-editor-title {
+    justify-content: space-between;
+  }
+
+  .admin-editor-actions {
+    justify-content: flex-end;
+  }
+
+  .admin-frontmatter-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-frontmatter-field {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+  }
+
+  .admin-field-label {
+    text-align: left;
+    min-width: auto;
+  }
+
+  .admin-editor-toolbar {
+    padding: 0.5rem;
+    justify-content: center;
+  }
+
+  .admin-markdown-preview {
+    padding: 1rem;
+  }
+
+  .admin-editor-footer {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-editor-info {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-editor-button {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .admin-editor-toolbar button {
+    min-width: 28px;
+    height: 28px;
+    padding: 0.25rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .admin-markdown-editor {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+
+  .admin-editor-header,
+  .admin-editor-toolbar,
+  .admin-editor-footer {
+    background: #374151;
+    border-color: #4b5563;
+  }
+
+  .admin-editor-title h2 {
+    color: #f9fafb;
+  }
+
+  .admin-frontmatter-editor {
+    background: #065f46;
+    border-color: #059669;
+  }
+
+  .admin-frontmatter-header h3 {
+    color: #d1fae5;
+  }
+
+  .admin-field-label {
+    color: #d1fae5;
+  }
+
+  .admin-field-input {
+    background: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+  }
+
+  .admin-field-input:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+  }
+
+  .admin-editor-toolbar button {
+    background: #4b5563;
+    border-color: #6b7280;
+    color: #f9fafb;
+  }
+
+  .admin-editor-toolbar button:hover {
+    background: #6b7280;
+    border-color: #9ca3af;
+  }
+
+  .admin-markdown-preview {
+    background: #1f2937;
+  }
+
+  .markdown-body {
+    color: #f9fafb;
+  }
+
+  .markdown-body h1,
+  .markdown-body h2,
+  .markdown-body h3,
+  .markdown-body strong {
+    color: #f9fafb;
+  }
+
+  .markdown-body code {
+    background: #374151;
+    border-color: #4b5563;
+    color: #d1d5db;
+  }
+
+  .admin-editor-info {
+    color: #9ca3af;
+  }
+}
+
+/* Focus states for accessibility */
+.admin-editor-button:focus,
+.admin-add-field-button:focus,
+.admin-remove-field-button:focus,
+.admin-editor-toolbar button:focus {
+  outline: 2px solid #16a34a;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .admin-editor-header,
+  .admin-editor-toolbar,
+  .admin-editor-footer,
+  .admin-frontmatter-editor {
+    display: none;
+  }
+  
+  .admin-markdown-editor {
+    height: auto;
+    box-shadow: none;
+    background: white;
+  }
+
+  .admin-markdown-preview {
+    padding: 0;
+  }
+}

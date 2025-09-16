@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - AeroSafe Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 1.5rem;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logout-btn {
+            padding: 0.5rem 1rem;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .logout-btn:hover {
+            background: #c82333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .card li {
+            padding: 0.5rem 0;
+            color: #555;
+        }
+        
+        .card a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .card a:hover {
+            text-decoration: underline;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .alert h3 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-card {
+            background: #e7f3ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .info-card h3 {
+            color: #004085;
+            margin-bottom: 1rem;
+        }
+        
+        .info-card ol {
+            margin-left: 1.5rem;
+            color: #004085;
+        }
+        
+        .info-card li {
+            margin: 0.5rem 0;
+        }
+        
+        .info-card code {
+            background: #004085;
+            color: white;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Admin Dashboard</h1>
+        <div class="user-info">
+            <span>Welcome, <strong id="username">Admin</strong></span>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <h2>📚 Documentation Management</h2>
+                <p>Manage your documentation files</p>
+                <ul>
+                    <li>• <a href="/docs">View Documentation</a></li>
+                    <li>• Edit existing pages (via file system)</li>
+                    <li>• Create new pages (via file system)</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>📝 Blog Management</h2>
+                <p>Manage blog posts and news</p>
+                <ul>
+                    <li>• <a href="/blog">View Blog</a></li>
+                    <li>• Create new posts (via file system)</li>
+                    <li>• Edit existing posts (via file system)</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>⚙️ Settings</h2>
+                <p>System configuration</p>
+                <ul>
+                    <li>• User: <span id="currentUser">Admin</span></li>
+                    <li>• Role: Administrator</li>
+                    <li>• Session: Active</li>
+                    <li>• Session expires: <span id="sessionExpiry">8 hours</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="alert">
+            <h3>🔒 Security Information</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li>• Sessions expire after 8 hours of inactivity</li>
+                <li>• All administrative actions are logged</li>
+                <li>• Files are automatically backed up daily</li>
+                <li>• Use strong passwords and change them regularly</li>
+            </ul>
+        </div>
+        
+        <div class="info-card" style="margin-top: 2rem;">
+            <h3>📝 How to Edit Documentation</h3>
+            <ol>
+                <li>Access the Docker container: <code>docker exec -it aerosafe-docs-dev bash</code></li>
+                <li>Navigate to documentation: <code>cd /app/docs</code></li>
+                <li>Edit markdown files with your preferred editor</li>
+                <li>Changes are automatically detected and reloaded</li>
+            </ol>
+            <p style="margin-top: 1rem; color: #004085;">
+                <strong>Note:</strong> A web-based editor with live preview is under development.
+            </p>
+        </div>
+        
+        <div class="info-card" style="margin-top: 2rem;">
+            <h3>🚀 Quick Actions</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li>• <a href="/docs/getting-started">Getting Started Guide</a></li>
+                <li>• <a href="/docs/products">Product Documentation</a></li>
+                <li>• <a href="/blog">Latest Blog Posts</a></li>
+                <li>• <a href="/">Home Page</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Check authentication
+        function checkAuth() {
+            const auth = localStorage.getItem('aerosafe_auth');
+            if (!auth) {
+                window.location.href = '/admin/login.html';
+                return;
+            }
+            
+            const authData = JSON.parse(auth);
+            
+            // Check if session is expired (8 hours)
+            if (Date.now() - authData.loginTime > 8 * 60 * 60 * 1000) {
+                localStorage.removeItem('aerosafe_auth');
+                window.location.href = '/admin/login.html';
+                return;
+            }
+            
+            // Update UI with user info
+            document.getElementById('username').textContent = authData.username;
+            document.getElementById('currentUser').textContent = authData.username;
+            
+            // Calculate remaining session time
+            const remainingTime = (8 * 60 * 60 * 1000) - (Date.now() - authData.loginTime);
+            const hours = Math.floor(remainingTime / (60 * 60 * 1000));
+            const minutes = Math.floor((remainingTime % (60 * 60 * 1000)) / (60 * 1000));
+            document.getElementById('sessionExpiry').textContent = `${hours}h ${minutes}m remaining`;
+        }
+        
+        function logout() {
+            localStorage.removeItem('aerosafe_auth');
+            window.location.href = '/admin/login.html';
+        }
+        
+        // Check auth on page load
+        checkAuth();
+        
+        // Check auth every minute
+        setInterval(checkAuth, 60000);
+    </script>
+</body>
+</html>
