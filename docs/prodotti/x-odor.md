@@ -1,19 +1,13 @@
 # X-ODOR® - Inibitore dell'Odore
 
-![X-ODOR® - Inibitore dell'Odore](/img/docs/x-odor/page1_img1.jpeg)
-
+![X-ODOR® - Prodotto liquido per prevenire e eliminare gli odori sgradevoli attraverso decomposizione molecolare](/img/docs/x-odor/page1_img1.jpeg)
 
 ## Panoramica
-
-![Panoramica](/img/docs/x-odor/page1_img2.jpeg)
 
 
 **X-ODOR®** è un prodotto liquido pronto all'uso per prevenire e "cancellare" gli odori sgradevoli. Deodora naturalmente la materia organica bloccando lo sviluppo delle molecole gassose maleodoranti attraverso un meccanismo di decomposizione molecolare avanzato.
 
 ## Meccanismo d'Azione
-
-![Meccanismo d'Azione](/img/docs/x-odor/page1_img3.jpeg)
-
 
 ### Problema degli Odori
 La maggior parte dei cattivi odori è causata dalla formazione di gas quali:
@@ -37,9 +31,6 @@ X-ODOR® interviene con un meccanismo innovativo:
 - ✅ **Raggiunge** istantaneamente l'equilibrio chimico corretto
 
 ## Vantaggi Distintivi
-
-![Vantaggi Distintivi](/img/docs/x-odor/page2_img1.jpeg)
-
 
 ### Sicurezza Totale
 - ✅ **Assolutamente sicuro** per ambiente, animali e persone

@@ -1,19 +1,13 @@
 # Silver Shield® - Igienizzante Protettivo
 
-![Silver Shield® - Igienizzante Protettivo](/img/docs/silver-shield/page1_img1.jpeg)
-
+![Silver Shield® - Detergente igienizzante protettivo a base idroalcolica con ioni argento](/img/docs/silver-shield/page1_img1.jpeg)
 
 ## Panoramica
-
-![Panoramica](/img/docs/silver-shield/page1_img2.jpeg)
 
 
 **Silver Shield®** è un detergente pronto all'uso a base idroalcolica con attività tensioattiva e fotocatalitica. Offre proprietà igienizzanti e protettive, specificatamente studiato per superfici ad alti standard igienici in ambito industriale e comunitario.
 
 ## Tecnologia Innovativa
-
-![Tecnologia Innovativa](/img/docs/silver-shield/page2_img1.jpeg)
-
 
 ### Composizione Avanzata
 - **Ioni argento** per azione antimicrobica prolungata
@@ -28,9 +22,6 @@
 4. **Eliminazione odori** - Neutralizzazione molecole maleodoranti
 
 ## Caratteristiche Distintive
-
-![Caratteristiche Distintive](/img/docs/silver-shield/page2_img2.jpeg)
-
 
 ### Azione Igienizzante
 - ✅ **Rimozione efficace** di germi e batteri

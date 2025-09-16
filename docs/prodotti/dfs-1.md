@@ -1,18 +1,12 @@
 # DFS-1 - Dispositivo Carrellato Produzione Aerosol Polarizzato
 
-![DFS-1 - Dispositivo Carrellato Produzione Aerosol Polarizzato](/img/docs/dfs-1/page1_img1.jpeg)
-
+![DFS-1 Product Image](/img/docs/dfs-1/page1_img1.jpeg)
 
 ## Panoramica
-
-![Panoramica](/img/docs/dfs-1/page1_img2.jpeg)
-
 
 Il **DFS-1** è un dispositivo portatile carrellato per la produzione a freddo di "aerosol polarizzato" attraverso il processo di sonicazione denominato **DryFogS©** (Dry Fog System).
 
 ## Tecnologia DryFogS©
-
-![Tecnologia DryFogS©](/img/docs/dfs-1/page1_img3.jpeg)
 
 
 La particolare "nebbia secca" prodotta non lascia residui umidi sulle superfici, grazie alla diffusione concentrata e ben distribuita di goccioline polarizzate con diametro aerodinamico medio di **4 μm** (Certificazione UNIPR).
@@ -24,9 +18,6 @@ La particolare "nebbia secca" prodotta non lascia residui umidi sulle superfici,
 - Ottimizzazione dell'azione dei principi attivi
 
 ## Specifiche Tecniche
-
-![Specifiche Tecniche](/img/docs/dfs-1/page1_img4.jpeg)
-
 
 | Caratteristica | Valore |
 |---|---|
@@ -41,9 +32,6 @@ La particolare "nebbia secca" prodotta non lascia residui umidi sulle superfici,
 
 ## Applicazioni
 
-![Applicazioni](/img/docs/dfs-1/page1_img5.jpeg)
-
-
 ### Service Professionale
 - Disinfezione ambientale e impiantistica aria (fancoil, split)
 - Prevenzione ed eliminazione odori
@@ -56,15 +44,9 @@ La particolare "nebbia secca" prodotta non lascia residui umidi sulle superfici,
 
 ## Tempi Operativi
 
-![Tempi Operativi](/img/docs/dfs-1/page2_img1.jpeg)
-
-
 **3-5 minuti per 20 mq** = incremento umidità relativa ~15%
 
 ## Sistema di Controllo
-
-![Sistema di Controllo](/img/docs/dfs-1/page2_img2.jpeg)
-
 
 ### Programmazione Avanzata
 - **Pannello di controllo** con software gestionale
@@ -83,15 +65,9 @@ La particolare "nebbia secca" prodotta non lascia residui umidi sulle superfici,
 
 ## Sicurezza
 
-![Sicurezza](/img/docs/dfs-1/page2_img3.jpeg)
-
-
 ⚠️ **ATTENZIONE**: Non utilizzare prodotti infiammabili
 
 ## Produttore
-
-![Produttore](/img/docs/dfs-1/page2_img4.jpeg)
-
 
 **IST Srls**  
 Sede Legale - Via Garibaldi 45 - 10122 Torino (TO)  

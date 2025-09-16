@@ -1,19 +1,13 @@
 # Lee Plus® - Anti Odore Naturale
 
-![Lee Plus® - Anti Odore Naturale](/img/docs/lee-plus-antiodor/page1_img1.png)
-
+![Lee Plus® - Prodotto anti odore naturale a base di oli ed estratti vegetali](/img/docs/lee-plus-antiodor/page1_img1.png)
 
 ## Panoramica
-
-![Panoramica](/img/docs/lee-plus-antiodor/page1_img2.jpeg)
 
 
 **Lee Plus®** è un prodotto pronto all'uso per prevenire ed eliminare odori sgradevoli, formulato completamente a base di oli ed estratti naturali di piante. È concepito sulla base della teoria della purificazione del bosco e delle foreste.
 
 ## Filosofia del Prodotto
-
-![Filosofia del Prodotto](/img/docs/lee-plus-antiodor/page2_img1.png)
-
 
 ### Ispirazione Naturale
 Lee Plus si basa sul principio naturale osservato nei boschi e nelle foreste dove, nonostante la presenza di escrementi e organismi in decomposizione, non ci sono cattivi odori ma si mantiene un profumo di fresco e pulito.
@@ -25,9 +19,6 @@ Lee Plus si basa sul principio naturale osservato nei boschi e nelle foreste dov
 - ✅ **Riequilibra** la ionizzazione ambientale
 
 ## Caratteristiche Distintive
-
-![Caratteristiche Distintive](/img/docs/lee-plus-antiodor/page2_img2.jpeg)
-
 
 ### Composizione Naturale
 - ✅ **100% ingredienti naturali** di origine vegetale

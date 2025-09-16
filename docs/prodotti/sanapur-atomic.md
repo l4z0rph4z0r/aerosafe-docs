@@ -1,25 +1,16 @@
 # Sanapur Atomic - Disinfettante Naturale
 
-![Sanapur Atomic - Disinfettante Naturale](/img/docs/sanapur-atomic/page1_img1.jpeg)
-
+![Sanapur Atomic Product Image](/img/docs/sanapur-atomic/page1_img1.jpeg)
 
 ## Panoramica
-
-![Panoramica](/img/docs/sanapur-atomic/page1_img2.jpeg)
-
 
 **Sanapur Atomic** è un disinfettante naturale a pH neutro per impiego professionale, approvato in area medica anche in condizioni di sporco. È l'unico disinfettante approvato **senza indicazioni di pericolo in etichetta**.
 
 ## Numero di Autorizzazione
 
-![Numero di Autorizzazione](/img/docs/sanapur-atomic/page2_img1.jpeg)
-
 **P.M.C. n° 20956** - Presidio Medico Chirurgico autorizzato dal Ministero della Salute
 
 ## Tecnologia Innovativa
-
-![Tecnologia Innovativa](/img/docs/sanapur-atomic/page3_img1.jpeg)
-
 
 ### Principio Attivo Rivoluzionario
 - **Acido Ipocloroso** (HOCl) - Sostanza naturalmente prodotta dall'organismo umano
@@ -36,9 +27,6 @@
 
 ## Meccanismo d'Azione
 
-![Meccanismo d'Azione](/img/docs/sanapur-atomic/page3_img2.jpeg)
-
-
 ### Penetrazione Cellulare
 L'acido ipocloroso ha:
 - **Struttura molecolare** simile all'acqua
@@ -54,9 +42,6 @@ L'acido ipocloroso ha:
 5. **Morte cellulare** per apoptosi
 
 ## Spettro d'Azione
-
-![Spettro d'Azione](/img/docs/sanapur-atomic/page3_img3.jpeg)
-
 
 ### Efficacia Battericida
 - ✅ **Azione in presenza di sostanze interferenti**
@@ -75,8 +60,6 @@ L'acido ipocloroso ha:
 - ✅ **Ambito medico** certificato
 
 ## Caratteristiche Chimico-Fisiche
-
-![Caratteristiche Chimico-Fisiche](/img/docs/sanapur-atomic/page3_img4.jpeg)
 
 
 | Proprietà | Valore |
